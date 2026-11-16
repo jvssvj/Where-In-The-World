@@ -22,7 +22,6 @@ export default function CountryDetail({
   country,
   borders,
   from,
-  onBack,
   onClose,
 }: CountryDetailProps) {
   const panelRef = useRef<HTMLDivElement>(null)
