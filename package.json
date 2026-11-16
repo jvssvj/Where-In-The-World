@@ -1,0 +1,36 @@
+{
+  "name": "where-in-the-world",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Where in the world? — Frontend Mentor REST Countries API challenge, built with React, TypeScript and Tailwind CSS.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvssvj/Rest-Countries-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jvssvj/Rest-Countries-API/issues"
+  },
+  "homepage": "https://github.com/jvssvj/Rest-Countries-API#readme",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^3.15.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^7.18.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~5.9",
+    "vite": "^8.3.8"
+  }
+}

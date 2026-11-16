@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+/* Dark mode is driven by a `dark` class on <html> (see hooks/useTheme.ts) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Nunito Sans', sans-serif;
+
+  /* Style guide colors */
+  --color-lm-text: hsl(200 15% 8%); /* Very Dark Blue (Light Mode Text) */
+  --color-lm-input: hsl(0 0% 52%); /* Dark Gray (Light Mode Input) */
+  --color-lm-bg: hsl(0 0% 98%); /* Very Light Gray (Light Mode Background) */
+  --color-dm-elements: hsl(209 23% 22%); /* Dark Blue (Dark Mode Elements) */
+  --color-dm-bg: hsl(207 26% 17%); /* Very Dark Blue (Dark Mode Background) */
+  --color-dm-muted: hsl(0 0% 65%); /* Secondary text in dark mode */
+
+  --shadow-card: 0 8px 24px 0 rgb(149 157 165 / 0.2);
+  --shadow-card-dark: 0 5px 15px 0 rgb(0 0 0 / 0.2);
+
+  /* Same breakpoints as the original CSS: mobile < 756px, tablet >= 756px, desktop >= 1095px */
+  /* Max width of every content container (header, nav, grid, pagination, detail): `max-w-page` */
+  --container-page: 1440px;
+
+  --breakpoint-tablet: 756px;
+  --breakpoint-desktop: 1095px;
+}
+
+@layer base {
+  html,
+  body {
+    @apply w-full overflow-x-hidden;
+  }
+
+  body {
+    @apply bg-lm-bg font-sans leading-normal antialiased transition-colors duration-500 dark:bg-dm-bg;
+  }
+
+  /* Tailwind v4 resets buttons to the default cursor */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+
+  .dark :focus-visible {
+    outline-color: #fff;
+  }
+}

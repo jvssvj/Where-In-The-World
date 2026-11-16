@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="João Vitor" />
+    <meta
+      name="description"
+      content="Where in the world? é um projeto para explorar países com dados atualizados como população, região, capital e bandeiras."
+    />
+    <meta
+      name="keywords"
+      content="países, bandeiras, regiões, API, frontend, React, Typescript, Tailwind, Vercel, João Vitor"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <title>Where in the world?</title>
+
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+
+    <!-- Open Graph (Facebook, LinkedIn etc) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://witw-map.vercel.app/" />
+    <meta property="og:title" content="Where in the world?" />
+    <meta
+      property="og:description"
+      content="Explore países ao redor do mundo com informações completas e atualizadas. Interface moderna e responsiva."
+    />
+    <meta property="og:image" content="https://witw-map.vercel.app/images/meta-preview.png" />
+    <meta property="og:site_name" content="Where in the World" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Where in the world?" />
+    <meta
+      name="twitter:description"
+      content="Explore países ao redor do mundo com informações completas e atualizadas. Interface moderna e responsiva."
+    />
+    <meta name="twitter:image" content="https://witw-map.vercel.app/images/meta-preview.png" />
+
+    <meta name="theme-color" content="hsl(207, 26%, 17%)" />
+
+    <!-- Nunito Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Applies the saved theme before first paint (avoids a light-mode flash) -->
+    <script>
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark')
+        }
+      } catch (_) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
