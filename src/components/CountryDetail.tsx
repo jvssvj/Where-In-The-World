@@ -9,7 +9,6 @@ interface CountryDetailProps {
   borders: BorderCountry[]
   /** Home URL (with page/search/region) that "Close" returns to; passed along to border links. */
   from: string
-  onBack: () => void
   onClose: () => void
 }
 
