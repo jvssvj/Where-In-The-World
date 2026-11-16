@@ -7,7 +7,6 @@ import { useCountryDetails } from '../hooks/useCountryDetails'
 import { getFrom } from '../lib/routerState'
 import type { BorderCountry } from '../types/country'
 
-/** /country/:code — the code is the alpha-3 code (BRA, USA…). */
 export default function CountryPage() {
   const code = (useParams().code ?? '').toUpperCase()
   const location = useLocation()
@@ -18,9 +17,6 @@ export default function CountryPage() {
 
   const from = getFrom(location.state)
 
-  // `key === 'default'` means this is the first page of the session (opened by URL / F5 in a new tab):
-  // there's no previous page of ours to go back to, so "Back" goes home instead of leaving the site.
-  const goBack = () => (location.key === 'default' ? navigate(from) : navigate(-1))
   const close = () => navigate(from)
 
   const borders = useMemo<BorderCountry[]>(() => {
@@ -39,7 +35,6 @@ export default function CountryPage() {
           country={country}
           borders={borders}
           from={from}
-          onBack={goBack}
           onClose={close}
         />
       )}
