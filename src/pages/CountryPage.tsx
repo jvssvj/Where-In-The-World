@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router'
 import CountryDetail from '../components/CountryDetail'
-import Spinner from '../components/Spinner'
+import CountryDetailSkeleton from '../components/CountryDetailSkeleton'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useCountryDetails } from '../hooks/useCountryDetails'
 import { getFrom } from '../lib/routerState'
@@ -39,7 +39,7 @@ export default function CountryPage() {
         />
       )}
 
-      {isLoading && <Spinner className="mt-24" />}
+      {isLoading && <CountryDetailSkeleton onClose={close} />}
 
       {error && (
         <div className="mt-24 flex flex-col items-center gap-8">

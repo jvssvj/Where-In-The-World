@@ -2,7 +2,8 @@ import { useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router'
 import { playDetailAnimation } from '../lib/animations'
 import type { BorderCountry, CountryDetail as CountryDetailData } from '../types/country'
-import { CloseIcon } from './Icons'
+import CloseButton from './CloseButton'
+import FlagImage from './FlagImage'
 
 interface CountryDetailProps {
   country: CountryDetailData
@@ -14,8 +15,6 @@ interface CountryDetailProps {
 
 const label = 'flex flex-wrap gap-[.3rem] font-semibold text-lm-text dark:text-white'
 const value = 'font-normal text-lm-input dark:text-dm-muted'
-const navButton =
-  'h-[43px] w-[139px] rounded-[.3rem] bg-white text-lm-text shadow-card transition duration-200 ease-in-out active:scale-[.92] dark:bg-dm-elements dark:text-white dark:shadow-card-dark'
 
 export default function CountryDetail({
   country,
@@ -41,23 +40,15 @@ export default function CountryDetail({
     >
       <div data-reveal="flag" className="w-full desktop:w-auto">
         <div className="mt-8 mb-16 flex items-center justify-between desktop:mt-16">
-          {/* <button type="button" onClick={onBack} className={navButton}>
-            Back
-          </button> */}
-          <button
-            type="button"
-            onClick={onClose}
-            className={`${navButton} flex items-center justify-center gap-2`}
-          >
-            <CloseIcon className="size-4" />
-            Close
-          </button>
+          <CloseButton onClick={onClose} />
         </div>
 
-        <img
+        <FlagImage
           src={country.flags.svg}
           alt={`Flag of the country ${country.name.common}`}
-          className="w-full rounded-[.2rem] object-contain shadow-card desktop:h-[300px] desktop:min-w-[560px] desktop:object-cover dark:shadow-card-dark"
+          className="w-full rounded-[.2rem] shadow-card desktop:h-[300px] desktop:min-w-[560px] dark:shadow-card-dark"
+          pendingClassName="aspect-[3/2] desktop:aspect-auto"
+          imgClassName="block w-full object-contain desktop:h-full desktop:object-cover"
         />
       </div>
 

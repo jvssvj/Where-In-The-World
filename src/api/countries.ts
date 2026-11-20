@@ -69,7 +69,7 @@ function toDetail(c: ApiCountry): CountryDetail {
 }
 
 export async function fetchAllCountries(signal?: AbortSignal) {
-  const countries: CountrySummary[] = []
+  const byCode = new Map<string, CountrySummary>()
 
   for (let page = 0; page < MAX_PAGES; page++) {
     const { objects, meta } = await request(
@@ -77,11 +77,14 @@ export async function fetchAllCountries(signal?: AbortSignal) {
       signal,
     )
 
-    countries.push(...objects.map(toSummary))
-    if (!meta?.more) break
+    const before = byCode.size
+    for (const country of objects.map(toSummary)) byCode.set(country.cca3, country)
+
+    // para quando a API diz que acabou, ou quando a página não trouxe nada novo
+    if (!meta?.more || byCode.size === before) break
   }
 
-  return countries
+  return [...byCode.values()]
 }
 
 export async function fetchCountryByCode(code: string, signal?: AbortSignal) {

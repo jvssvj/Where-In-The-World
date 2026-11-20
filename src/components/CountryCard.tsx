@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router'
 import type { CountrySummary } from '../types/country'
-import standardFlag from "../../public/images/standard-flag.webp"
+import standardFlag from "../assets/images/standard-flag.webp"
+import FlagImage from './FlagImage'
 
 interface CountryCardProps {
   country: CountrySummary
@@ -32,10 +33,11 @@ export default function CountryCard({ country }: CountryCardProps) {
           />
         </div>
       ) : (
-        <img
+        <FlagImage
           src={flags.svg}
           alt={`Flag of the country ${name.common}`}
-          className="h-[161px] w-full object-cover shadow-card dark:shadow-card-dark"
+          className="h-[161px] w-full shadow-card dark:shadow-card-dark"
+          imgClassName="size-full object-cover"
         />
       )}
 

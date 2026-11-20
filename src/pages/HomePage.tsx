@@ -9,7 +9,7 @@ import Spinner from '../components/Spinner'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { PAGE_SIZE, paginate } from '../lib/pagination'
 import { filterCountries, pinFeatured, sortByName } from '../lib/filterCountries'
-import noResultsFound from '../../public/images/globe-search.svg'
+import noResultsFound from '../assets/images/globe-search.webp'
 
 const SEARCH_DEBOUNCE_MS = 600
 
@@ -103,19 +103,16 @@ export default function HomePage() {
       </nav>
 
       <div className="flex w-full items-center justify-center">
-        {isLoading && <Spinner className="absolute z-2 mt-80" />}
-
-        <CountryGrid countries={visibleCountries} />
-      </div>
-
-      <div className="flex w-full items-center justify-center">
-        {isLoading && <Spinner className="absolute z-2 mt-80" />}
+        {/* Fixed layer from just under the header (81px) to the bottom of the screen → true centre of the visible area */}
+        {isLoading && (
+          <Spinner className="pointer-events-none fixed inset-x-0 top-[81px] bottom-0 z-2 flex items-center justify-center" />
+        )}
 
         <CountryGrid countries={visibleCountries} />
       </div>
 
       {isEmpty && (
-        <div role="status" className="mt-30 flex flex-col items-center gap-6 px-4 text-center">
+        <div role="status" className="relative top-[10rem] flex flex-col items-center gap-6 px-4 text-center">
           <img src={noResultsFound} alt="" className="w-[130px] max-w-xs" />
           <p className="text-xl font-semibold text-lm-text dark:text-white">No results found</p>
         </div>
